@@ -1,0 +1,19 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: mateoloaiza
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: HTTPAPI
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: python3.12
+
+functions:
+  holaMundo:
+    handler: handler.hello
+    events:
+      - http:
+          path: /
+          method: get
